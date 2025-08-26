@@ -1,0 +1,75 @@
+1. using System;
+
+public class Pessoa
+{
+    public string Nome;
+    public int Idade;
+    public string Cargo;
+
+    public void Apresentar(float salario)
+    {
+        Console.WriteLine($"Ola, meu nome e {Nome}, tenho {Idade} anos, meu cargo e {Cargo} e meu salario e R${salario}.");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Pessoa p1 = new Pessoa();
+        p1.Idade = 30;
+        p1.Nome = "Joao";
+        p1.Cargo = "Desenvolvedor";
+        p1.Apresentar(5000);
+
+        Pessoa p2 = new Pessoa();
+        p2.Idade = 22;
+        p2.Nome = "Pedro";
+        p2.Cargo = "Gerente";
+        p2.Apresentar(10000);
+
+        Pessoa p3 = new Pessoa();
+        p3.Idade = 18;
+        p3.Nome = "Tiago";
+        p3.Cargo = "Estagiário";
+        p3.Apresentar(100);
+    }
+}
+
+2. using System;
+
+public class fantasminhas
+{
+    public string habilidade;
+    public string nick;
+    public string cor;
+
+    public void gerarfantasma()
+    {
+        Console.WriteLine($"Sou o fantasma {nick}, sou da cor {cor} e minha habilidade e {habilidade}.");
+    }
+    public void mover(string destino)
+    {
+        Console.WriteLine($"{nick} moveu para {destino}.");
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        fantasminhas p1 = new fantasminhas();
+        p1.nick = "horse";
+        p1.cor = "cinza";
+        p1.habilidade = "super pulo";
+        p1.gerarfantasma();
+        p1.mover("cima");
+
+        fantasminhas p2 = new fantasminhas();
+        p2.nick = "minhocao";
+        p2.cor = "preto";
+        p2.habilidade = "voltar no tempo";
+        p2.gerarfantasma();
+        p2.mover("baixo");
+    }
+}
