@@ -1,0 +1,89 @@
+2.2
+
+using System;
+
+public class Carro
+{
+    private string modelo;
+    private int velocidadeAtual;
+
+    // ler modelo
+    public string Modelo
+    {
+        get { return modelo; }
+    }
+
+    // get set pra ler e definir a velocidade
+    public int VelocidadeAtual
+    {
+        get { return velocidadeAtual; }
+        private set
+        {
+            if (value >= 0)
+            {
+                velocidadeAtual = value;
+            }
+            else
+            {
+                velocidadeAtual = 0;
+                Console.WriteLine("Erro: A velocidade nao pode ser menor que 0.");
+            }
+        }
+    }
+
+    // Construtor pra definir os valores
+    public Carro(string modelo)
+    {
+        this.modelo = modelo;
+        this.velocidadeAtual = 0;
+    }
+
+    // metodo pra acelerar
+    public void Acelerar(int valor)
+    {
+        if (valor > 0)
+        {
+            VelocidadeAtual += valor;
+        }
+        else
+        {
+            Console.WriteLine("Erro: Valor para acelerar deve ser positivo.");
+        }
+    }
+
+    // metodo pra frear
+    public void Frear(int valor)
+    {
+        if (valor > 0)
+        {
+            VelocidadeAtual -= valor;
+        }
+        else
+        {
+            Console.WriteLine("Erro: Valor para frear deve ser positivo.");
+        }
+    }
+
+    // exibir detalhes
+    public void ExibirDetalhes()
+    {
+        Console.WriteLine($"Modelo: {modelo}, Velocidade atual: {velocidadeAtual}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Carro c = new Carro("Ferrari Purosangue");
+        c.ExibirDetalhes();
+        c.Acelerar(50);
+        Console.WriteLine(c.VelocidadeAtual); // Deve exibir 50
+
+        c.Frear(30);
+        Console.WriteLine(c.VelocidadeAtual); // Deve exibir 20
+
+        c.Frear(50); // Não pode ficar negativo, deve exibir 0
+        Console.WriteLine(c.VelocidadeAtual); // Exibe 0
+    }
+}
