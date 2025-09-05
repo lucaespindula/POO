@@ -1,0 +1,92 @@
+2.3
+
+using System;
+
+public class Elevador
+{
+    private int andarAtual;
+    private int totalAndares;
+
+    public int AndarAtual
+    {
+        get {return andarAtual;}
+        private set
+        {
+            if (value>=0 && value<=TotalAndares)
+            {
+                andarAtual = value;
+            }
+            else
+            {
+                Console.WriteLine("Erro: Andar inválido.");
+            }
+        }
+    }
+
+    public int TotalAndares
+    {
+        get { return totalAndares; }
+        private set
+        {
+            if (value >= 1)
+            {
+                totalAndares = value;
+            }
+            else
+            {
+                totalAndares=1;
+                Console.WriteLine("Erro: O total de andares deve ser pelo menos 1");
+            }
+        }
+    }
+
+    public Elevador(int totalAndares)
+    {
+        TotalAndares = totalAndares;
+        AndarAtual=0;
+    }
+
+    public void Subir()
+    {
+        if (AndarAtual < TotalAndares)
+        {
+            AndarAtual++;
+        }
+        else
+        {
+            Console.WriteLine("Voce ja esta no ultimo andar.");
+        }
+    }
+
+    public void Descer()
+    {
+        if (AndarAtual>0)
+        {
+            AndarAtual--;
+        }
+        else
+        {
+            Console.WriteLine("Voce ja esta no terreo.");
+        }
+    }
+
+    public void ExibirDetalhes()
+    {
+        Console.WriteLine($"Andar atual: {AndarAtual} de {TotalAndares}");
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Elevador e = new Elevador(10); // 10 andares
+        e.Subir();
+        e.Subir();
+        Console.WriteLine(e.AndarAtual); // Deve exibir 2
+        e.Descer();
+        Console.WriteLine(e.AndarAtual); // Deve exibir 1
+        e.Descer();
+        e.Descer(); // Deve continuar em 0
+    }
+}
