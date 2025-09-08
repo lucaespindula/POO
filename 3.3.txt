@@ -1,0 +1,44 @@
+using System;
+
+public class Item
+{
+    public string Nome { get; set; }
+    public double Preco { get; set; }
+    public void ExibirItem()
+    {
+        Console.WriteLine($"Item: {Nome}, Preço: R${Preco}");
+    }
+using System;
+
+public interface IVeiculo
+{
+    void Mover();
+}
+
+public class Carro : IVeiculo
+{
+    public void Mover()
+    {
+        Console.WriteLine("O carro esta movendo");
+    }
+}
+
+public class Bicicleta : IVeiculo
+{
+    public void Mover()
+    {
+        Console.WriteLine("A bicicleta esta movendo");
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        IVeiculo veiculo1 = new Carro();
+        IVeiculo veiculo2 = new Bicicleta();
+
+        veiculo1.Mover();
+        veiculo2.Mover();
+
+    }
+}
