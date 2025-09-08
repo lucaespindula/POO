@@ -1,0 +1,53 @@
+4.1
+
+class Pagamento
+{
+    public virtual void ProcessarPagamento()
+    {
+        Console.WriteLine("Processando pagamento");
+    }
+}
+class CartaoCredito : Pagamento
+{
+    public override void ProcessarPagamento()
+    {
+        Console.WriteLine("Pagamento processado no Credito");
+    }
+}
+class BoletoBancario : Pagamento
+{
+    public override void ProcessarPagamento()
+    {
+        Console.WriteLine("Pagamento processado no Boleto");
+    }
+using System;
+
+abstract class Funcionario
+{
+    public string Nome { get; set; }
+    public abstract void CalcularSalario();
+}
+class Gerente : Funcionario
+{
+    public override void CalcularSalario()
+    {
+        Console.WriteLine($"Gerente {Nome} tem salário: R$ 16000");
+    }
+}
+class Programador : Funcionario
+{
+    public override void CalcularSalario()
+    {
+        Console.WriteLine($"Programador {Nome} tem salário: R$ 6000");
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        Funcionario gerente = new Gerente { Nome = "Pedro" };
+        Funcionario programador = new Programador { Nome = "João" };
+        gerente.CalcularSalario();
+        programador.CalcularSalario();
+    }
+}
