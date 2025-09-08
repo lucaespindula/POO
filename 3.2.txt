@@ -1,0 +1,33 @@
+using System;
+
+public class Item
+{
+    public string Nome { get; set; }
+    public double Preco { get; set; }
+    public void ExibirItem()
+    {
+        Console.WriteLine($"Item: {Nome}, Preço: R${Preco}");
+    }
+}
+public class Pedido
+{
+    public Item item;
+    public Pedido(string nomeItem, double precoItem)
+    {
+        item = new Item {Nome = nomeItem, Preco = precoItem};
+    }
+    public void ExibirPedido()
+    {
+        Console.WriteLine("Pedido criado:");
+        item.ExibirItem();
+    }
+}
+class Program
+{
+    static void Main()
+    {
+        Pedido pedido = new Pedido("Notebook", 3500.00);
+        pedido.ExibirPedido();
+    }
+}
+
