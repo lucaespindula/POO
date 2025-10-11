@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.WriteLine("Digita a temperatura em Celsius: ");
+            string entrada = Console.ReadLine();
+
+            float temperatura = float.Parse(entrada);
+
+            Console.WriteLine($"Temperatura: {entrada} graus celsius.");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Erro: Valor de temperatura inválido, digite um valor válido.");
+        }
+        finally
+        {
+            Console.WriteLine("Bloco finally executado.");
+        }
+    }
+}

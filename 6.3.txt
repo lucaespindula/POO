@@ -1,0 +1,23 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        try
+        {
+            Console.WriteLine("Digite um numero inteiro: ");
+            int numero = int.Parse(Console.ReadLine());
+            Console.WriteLine($"Número digitado: {numero}");
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine("Erro: Valor inválido, por favor digite um numero inteiro.");
+        }
+        finally
+        {
+            Console.WriteLine("Bloco finally executado.");
+        }
+    }
+}
+
