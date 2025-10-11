@@ -1,0 +1,19 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        for (int i=1; i<=5; i++)
+        {
+            Console.Write($"Digite o {i} numero decimal: ");
+            double num = double.Parse(Console.ReadLine());
+
+            Console.WriteLine("Numero original: " + num);
+            Console.WriteLine("Arredondado: " + Math.Round(num));
+            Console.WriteLine("Arredondado para baixo: " + Math.Floor(num));
+            Console.WriteLine("Arredondado para cima: " + Math.Ceiling(num));
+            Console.WriteLine("Truncado: " + Math.Truncate(num));
+        }
+    }
+}

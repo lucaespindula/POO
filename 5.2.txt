@@ -1,0 +1,36 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite uma frase com espacos no inicio e no fim, e com palavras separadas por virgulas: ");
+        string frase = Console.ReadLine();
+
+        // Remove espacos extras
+        string fraseSemEspacos = frase.Trim();
+        Console.WriteLine($"Frase sem espacos: {fraseSemEspacos}");
+
+        // Divide em partes
+        string[] partes = fraseSemEspacos.Split(',');
+        Console.WriteLine("Palavras separadas:");
+        foreach (string p in partes)
+        {
+            Console.WriteLine(p);
+        }
+
+        // Substitui uma palavra
+        string substituida = fraseSemEspacos.Replace("oi", "ola");
+        Console.WriteLine($"Frase apos substituir: {substituida}");
+
+        // Verifica comeca
+        Console.Write("Digite uma palavra para verificar se a frase comeca com ela: ");
+        string inicio = Console.ReadLine();
+        Console.WriteLine($"Comeca com \"{inicio}\": {fraseSemEspacos.StartsWith(inicio)}");
+
+        // Verifica termina
+        Console.Write("Digite uma palavra para verificar se a frase termina com ela: ");
+        string fim = Console.ReadLine();
+        Console.WriteLine($"Termina com \"{fim}\": {fraseSemEspacos.EndsWith(fim)}");
+    }
+}
