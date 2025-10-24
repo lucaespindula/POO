@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+
+public class InversorPalavra
+{
+    public static void Main()
+    {
+        Console.Write("Digite uma palavra: ");
+        string palavra = Console.ReadLine();
+        Stack<char> pilha = new Stack<char>();
+
+        foreach (char c in palavra)
+            pilha.Push(c);
+
+        string invertida = "";
+        while (pilha.Count > 0)
+            invertida += pilha.Pop();
+
+        Console.WriteLine($"Palavra invertida: {invertida}");
+    }
+}

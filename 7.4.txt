@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+
+public class FilaAtendimento
+{
+    public static void Main()
+    {
+        Queue<string> fila = new Queue<string>();
+        string opcao = "";
+
+        while (opcao != "4")
+        {
+            Console.WriteLine("FILA DE ATENDIMENTO");
+            Console.WriteLine("1- Adicionar cliente");
+            Console.WriteLine("2- Atender próximo");
+            Console.WriteLine("3- Mostrar quantidade");
+            Console.WriteLine("4- Sair");
+            Console.Write("Escolha: ");
+            opcao = Console.ReadLine();
+
+            if (opcao == "1")
+            {
+                Console.Write("Nome do cliente: ");
+                fila.Enqueue(Console.ReadLine());
+            }
+            else if (opcao == "2")
+            {
+                if (fila.Count > 0)
+                    Console.WriteLine("Atendendo: " + fila.Dequeue());
+                else
+                    Console.WriteLine("Fila vazia.");
+            }
+            else if (opcao == "3")
+            {
+                Console.WriteLine($"Clientes na fila: {fila.Count}");
+            }
+            else if (opcao == "4")
+            {
+                Console.WriteLine("Saindo...");
+            }
+            else
+            {
+                Console.WriteLine("Opção inválida.");
+            }
+        }
+    }
+}

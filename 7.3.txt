@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+
+public class NumerosUnicos
+{
+    public static void Main()
+    {
+        HashSet<int> numeros = new HashSet<int>();
+        int num = -1;
+
+        Console.WriteLine("Digite números (0 para parar):");
+
+        while (num != 0)
+        {
+            Console.Write("Número: ");
+            num = int.Parse(Console.ReadLine());
+
+            if (num != 0)
+            {
+                if (numeros.Add(num))
+                    Console.WriteLine("Número adicionado.");
+                else
+                    Console.WriteLine("Número repetido, ignorado.");
+            }
+        }
+
+        Console.WriteLine("\nNúmeros únicos digitados:");
+        foreach (int n in numeros)
+            Console.WriteLine(n);
+    }
+}

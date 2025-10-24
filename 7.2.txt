@@ -1,0 +1,62 @@
+using System;
+using System.Collections.Generic;
+
+public class CatalogoProdutos
+{
+    public static void Main()
+    {
+        Dictionary<int, string> produtos = new Dictionary<int, string>();
+        string opcao = "";
+
+        while (opcao != "4")
+        {
+            Console.WriteLine("\nCATÁLOGO DE PRODUTOS");
+            Console.WriteLine("1 - Adicionar produto");
+            Console.WriteLine("2 - Buscar produto por código");
+            Console.WriteLine("3 - Listar todos");
+            Console.WriteLine("4 - Sair");
+            Console.Write("Escolha: ");
+            opcao = Console.ReadLine();
+
+            if (opcao == "1")
+            {
+                Console.Write("Código do produto: ");
+                int codigo = int.Parse(Console.ReadLine());
+
+                if (produtos.ContainsKey(codigo))
+                    Console.WriteLine("Código já existe.");
+                else
+                {
+                    Console.Write("Nome do produto: ");
+                    string nome = Console.ReadLine();
+                    produtos.Add(codigo, nome);
+                    Console.WriteLine("Produto adicionado.");
+                }
+            }
+            else if (opcao == "2")
+            {
+                Console.Write("Código: ");
+                int cod = int.Parse(Console.ReadLine());
+
+                if (produtos.ContainsKey(cod))
+                    Console.WriteLine($"Produto: {produtos[cod]}");
+                else
+                    Console.WriteLine("Código não encontrado.");
+            }
+            else if (opcao == "3")
+            {
+                Console.WriteLine("\nProdutos cadastrados:");
+                foreach (var p in produtos)
+                    Console.WriteLine($"Código: {p.Key} - Nome: {p.Value}");
+            }
+            else if (opcao == "4")
+            {
+                Console.WriteLine("Saindo...");
+            }
+            else
+            {
+                Console.WriteLine("Opção inválida.");
+            }
+        }
+    }
+}
